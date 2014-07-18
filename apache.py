@@ -55,11 +55,8 @@ if __name__ == '__main__':
 
   parsed_lines = []
   with open(args.file, 'r') as fd:
-    while True:
-      try:
-        parsed_lines.append(parse_line(fd.next()))
-      except StopIteration:
-        break
+    for line in fd:
+      parsed_lines.append(parse_line(line))
 
   # Save the parsed logs if requested
   if args.output:
